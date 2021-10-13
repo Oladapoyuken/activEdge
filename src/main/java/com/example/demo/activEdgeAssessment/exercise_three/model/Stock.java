@@ -1,7 +1,6 @@
 package com.example.demo.activEdgeAssessment.exercise_three.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Stock {
@@ -9,11 +8,11 @@ public class Stock {
     private final UUID id;
     private final String name;
     private final int currentPrice;
-    private final LocalDateTime lastUpdate;
-    private final LocalDateTime createDate;
+    private final LocalDate lastUpdate;
+    private final LocalDate createDate;
 
 
-    public Stock(UUID id, String name, int currentPrice, LocalDateTime lastUpdate, LocalDateTime createDate) {
+    public Stock(UUID id, String name, int currentPrice, LocalDate lastUpdate, LocalDate createDate) {
         this.id = id;
         this.name = name;
         this.currentPrice = currentPrice;
@@ -33,11 +32,11 @@ public class Stock {
         return currentPrice;
     }
 
-    public LocalDateTime getLastUpdate() {
+    public LocalDate getLastUpdate() {
         return lastUpdate;
     }
 
-    public LocalDateTime getCreateDate() {
+    public LocalDate getCreateDate() {
         return createDate;
     }
 }

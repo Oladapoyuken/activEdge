@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View all products</title>
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $.getJSON("http://localhost:8080/api/stocks", function(result){
+                var sn = 1;
+                $.each(result, function(key,value) {
+                    $("#productsJson").append(
+                        "Item: " + sn + "<br>"+
+                        "Name: " + value.name+"<br>"+
+                        "Current Price: " + value.currentPrice+"<br>"+
+                        "Last price update: " + value.lastUpdate+"<br>"+
+                        "Date Created: " + value.createDate+"<br>"+
+                        "<hr>"
+                    );
+
+                    sn++;
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>LIST OF STOCKS</h1>
+<div id="productsJson"></div>
+</body>
+</html>

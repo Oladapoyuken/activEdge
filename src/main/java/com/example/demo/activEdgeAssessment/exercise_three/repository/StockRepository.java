@@ -3,7 +3,7 @@ package com.example.demo.activEdgeAssessment.exercise_three.repository;
 import com.example.demo.activEdgeAssessment.exercise_three.model.Stock;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -25,8 +25,8 @@ public class StockRepository implements StockDao{
         Stock newStock = new Stock(id,
                 stock.getName(),
                 stock.getCurrentPrice(),
-                LocalDateTime.now(),
-                LocalDateTime.now());
+                LocalDate.now(),
+                LocalDate.now());
         stockList.add(newStock);
         return "Stock added successfully";
     }
@@ -45,7 +45,7 @@ public class StockRepository implements StockDao{
                 p -> {
                     int index = stockList.indexOf(p);
                     if(index >= 0){
-                        stockList.set(index, new Stock(id, p.getName(), stock.getCurrentPrice(), LocalDateTime.now(), p.getCreateDate()));
+                        stockList.set(index, new Stock(id, p.getName(), stock.getCurrentPrice(), LocalDate.now(), p.getCreateDate()));
                         return 1;
                     }
                     return 0;
