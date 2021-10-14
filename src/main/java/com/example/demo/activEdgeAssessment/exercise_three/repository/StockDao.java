@@ -10,16 +10,16 @@ public interface StockDao {
 
     List<Stock> getStocks();
 
-    String create(UUID id, Stock stock);
+    String create(Stock stock);
 
-    default String create(Stock stock){
-        UUID id = UUID.randomUUID();
-        if(stock.getId() != null) return create(stock.getId(), stock);
-        return create(id, stock);
-    }
+//    default String create(Stock stock){
+//        int id = ٍ;
+//        if(stock.getId() != null) return create(stock.getId(), stock);
+//        return create(id, stock);
+//    }
 
-    int updateStock(UUID id, Stock stock);
+    int updateStock(int id, Stock stock);
 
-    Optional<Stock> selectStock(UUID id);
+    Optional<Stock> selectStock(int id);
 
 }

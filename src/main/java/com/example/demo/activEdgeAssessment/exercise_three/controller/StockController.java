@@ -31,7 +31,7 @@ public class StockController {
     }
 
     @PutMapping(path = "/")
-    private ResponseEntity<Object> updateStock(@RequestParam("id")UUID id, @RequestBody Stock stock){
+    private ResponseEntity<Object> updateStock(@RequestParam("id") int id, @RequestBody Stock stock){
         String res = "Sorry, could not update stock";
         if(stockService.updateStock(id, stock) == 1) res = "Stock updated successfully";
         return new ResponseEntity<>(res, HttpStatus.OK);
@@ -39,7 +39,7 @@ public class StockController {
     }
 
     @GetMapping(path = "/")
-    private ResponseEntity<Object> selectStock(@RequestParam("id")UUID id){
+    private ResponseEntity<Object> selectStock(@RequestParam("id") int id){
 
         return new ResponseEntity<>(stockService.selectStock(id), HttpStatus.OK);
     }

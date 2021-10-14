@@ -24,9 +24,9 @@ public class StockService {
 
     public List getStocks(){return stockDao.getStocks();}
 
-    public int updateStock(UUID id, Stock stock){return stockDao.updateStock(id, stock);}
+    public int updateStock(int id, Stock stock){return stockDao.updateStock(id, stock);}
 
-    public Optional<Stock> selectStock(UUID id){
+    public Optional<Stock> selectStock(int id){
 
         return stockDao.selectStock(id);
     }

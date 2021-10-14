@@ -5,14 +5,13 @@ import java.util.UUID;
 
 public class Stock {
 
-    private final UUID id;
+    private final int id;
     private final String name;
     private final int currentPrice;
     private final LocalDate lastUpdate;
     private final LocalDate createDate;
 
-
-    public Stock(UUID id, String name, int currentPrice, LocalDate lastUpdate, LocalDate createDate) {
+    public Stock(int id, String name, int currentPrice, LocalDate lastUpdate, LocalDate createDate) {
         this.id = id;
         this.name = name;
         this.currentPrice = currentPrice;
@@ -20,7 +19,7 @@ public class Stock {
         this.createDate = createDate;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 

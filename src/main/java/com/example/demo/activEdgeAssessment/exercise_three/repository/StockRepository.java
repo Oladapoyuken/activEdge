@@ -21,8 +21,8 @@ public class StockRepository implements StockDao{
     }
 
     @Override
-    public String create(UUID id, Stock stock) {
-        Stock newStock = new Stock(id,
+    public String create(Stock stock) {
+        Stock newStock = new Stock(stockList.size()+1,
                 stock.getName(),
                 stock.getCurrentPrice(),
                 LocalDate.now(),
@@ -32,14 +32,14 @@ public class StockRepository implements StockDao{
     }
 
     @Override
-    public Optional<Stock> selectStock(UUID id) {
+    public Optional<Stock> selectStock(int id) {
         return stockList.stream()
-                .filter(stock -> stock.getId().equals(id))
+                .filter(stock -> stock.getId() == id)
                 .findFirst();
     }
 
     @Override
-    public int updateStock(UUID id, Stock stock) {
+    public int updateStock(int id, Stock stock) {
 
         return selectStock(id).map(
                 p -> {
